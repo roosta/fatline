@@ -1,0 +1,4 @@
+# Example: ansible-playbook --ask-sudo-pass -v -i "localhost," -c local -v dotfiles.yml
+---
+- name: symlink user files
+  include: symlink.yml
