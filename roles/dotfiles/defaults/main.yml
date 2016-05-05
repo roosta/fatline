@@ -1,0 +1,7 @@
+---
+dotfiles_repo: "git@github.com:roosta/dotfiles.git"
+dotfiles_repo_local_dest: "~/.dotfiles"
+dotfiles_files:
+  - {src: "apvlv/.apvlv", dest: "~/.apvlv"}
+  - {src: "apvlv/.test-file-remove", dest: "~/.test-file-remove"}
+

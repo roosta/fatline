@@ -1,0 +1,20 @@
+---
+- name: Ensure dotfiles repository is cloned locally.
+  git:
+    repo: "{{ dotfiles_repo }}"
+    dest: "{{ dotfiles_repo_local_dest }}"
+    version: "fatline"
+
+- name: Stat existing files at destination.
+  stat: path="{{ item.dest }}"
+  register: existing_dotfile_info
+  with_items: "{{ dotfiles_files }}"
+
+- name: Remove existing dotfiles file if a replacement is being linked.
+  file: path="{{ item.item.dest }}" state=absent
+  when: item.stat.exists == true and item.stat.islnk == false
+  with_items: "{{ existing_dotfile_info.results }}"
+
+- name: Link dotfiles into home folder.
+  file: src="{{ dotfiles_repo_local_dest }}/{{ item.src }}" dest="{{ item.dest }}" state=link
+  with_items: "{{ dotfiles_files }}"

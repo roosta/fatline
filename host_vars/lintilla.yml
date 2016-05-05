@@ -1,0 +1,29 @@
+---
+# define host outputs and various associated vars
+outputs:
+  - display: "DVI-I-2"
+    bar_id: "bar-primary"
+    stat_conf: "~/.i3/status/lintilla_0.i3status"
+    bar_pos: "top"
+    tray_out: "primary"
+
+  - display: "DVI-I-3"
+    bar_id: "bar-secondary"
+    stat_conf: "~/.i3/status/lintilla_1.i3status"
+    bar_pos: "top"
+    tray_out: "primary"
+
+# i3 variables.
+i3_font: "pango:Essential PragmataPro 9"
+i3_status_font: "pango:Essential PragmataPro, FontAwesome 9"
+
+i3_status_command: "py3status -c "
+
+ # define various folders to put its respective files
+sbin_dir: "{{home}}/lib"
+bin_dir : "{{home}}/bin"
+lib_dir : "{{home}}/lib"
+font_dir: "{{home}}/.fonts/misc"
+
+# vim:ft=yaml:ts=2:sw=2
+

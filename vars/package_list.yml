@@ -1,24 +1,6 @@
-# The base directory containing files to be symlinked. This is probably your
-# dotfiles repo.
-dotfiles_src_dir: ~/.dotfiles
-
-# Directories to create before symlinking
-dotfiles_create_dirs:
-  - ~/.atom/
-
-# List of files to be symlinked, using dotfiles_src_dir as the base
-dotfiles_link_files:
-  - { src: 'apvlv/.aplvl', dest: '~/.aplvl' }
-  - { src: 'atom/config.cson', dest: '~/.atom/config.cson' }
-  - { src: 'atom/config.cson', dest: '~/.atom/config.cson' }
-
-# Files to template instead of symlink (only pip.conf is included right now)
-dotfiles_template_files:
-  - { src: 'i3.conf', dest: '~/.pip/pip.conf' }
-
 # Install pacman packages
 # TODO: cherry pick.
-dotfiles_pacman_packages:
+package_list:
   - ack
   - acpi
   - agave
