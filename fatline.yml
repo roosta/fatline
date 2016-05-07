@@ -1,6 +1,7 @@
 ---
 - hosts: all
   vars_files:
+    - vars/dotfiles.yml
     - host_vars/{{ ansible_hostname }}.yml
     - vars/gruvbox_palette.yml
   roles:
