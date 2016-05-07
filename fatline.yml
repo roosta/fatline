@@ -2,7 +2,7 @@
 - hosts: all
   vars_files:
     - host_vars/{{ ansible_hostname }}.yml
-    - vars/dark-fantastic-palette.yml
+    - vars/gruvbox_palette.yml
   roles:
     - dotfiles
     - i3wm
