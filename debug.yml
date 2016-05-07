@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: Stat existing files at destination.
+      stat: path="~/.zshrc"
+      register: debug_stat
+
+    - name: print
+      debug: msg="{{ debug_stat }}"
