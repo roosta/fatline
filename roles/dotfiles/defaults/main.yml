@@ -2,7 +2,7 @@
 dotfiles_repo: "https://github.com/roosta/dotfiles"
 dotfiles_repo_local_dest: "~/.dotfiles"
 dotfiles_files:
-  - {src: "bash/.bashrc",       parent: "~", dest: ".bashrc"}
-  - {src: "bash/.bash_logout",  parent: "~", dest: ".bash_logout"}
-  - {src: "bash/.bash_profile", parent: "~", dest: ".bash_profile"}
+  - {src: ".bashrc",       parent: "~", dest: ".bashrc"}
+  - {src: ".bash_logout",  parent: "~", dest: ".bash_logout"}
+  - {src: ".bash_profile", parent: "~", dest: ".bash_profile"}
 

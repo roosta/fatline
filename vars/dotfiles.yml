@@ -2,58 +2,58 @@
 dotfiles_repo: "git@github.com:roosta/dotfiles.git"
 dotfiles_repo_local_dest: "~/.dotfiles"
 dotfiles_files:
-  - {src: "apvlv/.apvlv",             parent: "~",                                 dest: ".apvlv"}
+  - {src: ".apvlv",             parent: "~",                                 dest: ".apvlv"}
   - {src: "atom/config.cson",         parent: "~/.atom",                           dest: "config.cson"}
-  - {src: "bash/.bashrc",             parent: "~",                                 dest: ".bashrc"}
-  - {src: "bash/.bash_logout",        parent: "~",                                 dest: ".bash_logout"}
-  - {src: "bash/.bash_profile",       parent: "~",                                 dest: ".bash_profile"}
-  - {src: "boxes/.boxes",             parent: "~",                                 dest: ".boxes"}
-  - {src: "compton/.compton.conf",    parent: "~",                                 dest: ".compton.conf"}
-  - {src: "ctags/.ctags",             parent: "~",                                 dest: ".ctags"}
-  - {src: "dunst",                    parent: "~/.config",                         dest: "dunst"}
-  - {src: "emacs/.spacemacs",         parent: "~",                                 dest: ".spacemacs"}
-  - {src: "fasd/.fasdrc",             parent: "~",                                 dest: ".fasdrc"}
+  - {src: ".bashrc",             parent: "~",                                 dest: ".bashrc"}
+  - {src: ".bash_logout",        parent: "~",                                 dest: ".bash_logout"}
+  - {src: ".bash_profile",       parent: "~",                                 dest: ".bash_profile"}
+  - {src: ".boxes",             parent: "~",                                 dest: ".boxes"}
+  - {src: ".compton.conf",    parent: "~",                                 dest: ".compton.conf"}
+  - {src: ".ctags",             parent: "~",                                 dest: ".ctags"}
+  - {src: "dunstrc",                    parent: "~/.config/dunst",                         dest: "dunstrc"}
+  - {src: ".spacemacs",         parent: "~",                                 dest: ".spacemacs"}
+  - {src: ".fasdrc",             parent: "~",                                 dest: ".fasdrc"}
   - {src: "fontconfig",               parent: "~/.config",                         dest: "fontconfig"}
   - {src: "fonts",                    parent: "~/.fonts",                          dest: "misc"}
   - {src: "gimp",                     parent: "~",                                 dest: ".gimp-2.8"}
   - {src: "git/.gitconfig",           parent: "~",                                 dest: ".gitconfig"}
   - {src: "git/.gitignore",           parent: "~",                                 dest: ".gitignore"}
   - {src: "git/.git_template",        parent: "~",                                 dest: ".git_template"}
-  - {src: "gtk/gtk-3.0",              parent: "~/.config",                         dest: "gtk-3.0"}
-  - {src: "gtk/.gtkrc-2.0",           parent: "~",                                 dest: ".gtkrc-2.0"}
+  - {src: "gtk-3.0",              parent: "~/.config",                         dest: "gtk-3.0"}
+  - {src: ".gtkrc-2.0",           parent: "~",                                 dest: ".gtkrc-2.0"}
   - {src: "i3",                       parent: "~",                                 dest: ".i3"}
-  - {src: "idea/.ideavimrc",          parent: "~",                                 dest: ".ideavimrc"}
-  - {src: "idea/config",              parent: "~/.IntelliJIdea15",                 dest: "config"}
+  - {src: ".ideavimrc",          parent: "~",                                 dest: ".ideavimrc"}
   - {src: "inkscape",                 parent: "~/.config",                         dest: "inkscape"}
+  - {src: "intellij",              parent: "~/.IntelliJIdea15",                 dest: "config"}
   - {src: "irssi",                    parent: "~",                                 dest: ".irssi"}
   - {src: "krita",                    parent: "~/.kde4/share/apps",                dest: "krita"}
   - {src: "lein/profiles.clj",        parent: "~/.lein",                           dest: "profiles.clj"}
-  - {src: "ls++/.ls++.conf",          parent: "~",                                 dest: ".ls++.conf"}
+  - {src: ".ls++.conf",          parent: "~",                                 dest: ".ls++.conf"}
   - {src: "ncmpcpp",                  parent: "~",                                 dest: ".ncmpcpp"}
-  - {src: "npm/.npmrc",               parent: "~",                                 dest: ".npmrc"}
+  - {src: ".npmrc",               parent: "~",                                 dest: ".npmrc"}
   - {src: "ranger",                   parent: "~/.config",                         dest: "ranger"}
-  - {src: "ruby/.gemrc",              parent: "~",                                 dest: ".gemrc"}
-  - {src: "screen/.screenrc",         parent: "~",                                 dest: ".screenrc"}
+  - {src: ".gemrc",              parent: "~",                                 dest: ".gemrc"}
+  - {src: ".screenrc",         parent: "~",                                 dest: ".screenrc"}
   - {src: "sublime-text-3",           parent: "~/.config/sublime-text-3/Packages", dest: "User"}
   - {src: "subversion",               parent: "~",                                 dest: ".subversion"}
-  - {src: "taskwarrior/.taskrc",      parent: "~",                                 dest: ".taskrc"}
+  - {src: ".taskrc",      parent: "~",                                 dest: ".taskrc"}
   - {src: "terminfo/.terminfo",       parent: "~",                                 dest: ".terminfo"}
   - {src: "termite",                  parent: "~/.config",                         dest: "termite"}
-  - {src: "tig/.tigrc",               parent: "~",                                 dest: ".tigrc"}
-  - {src: "tmux/.tmux.conf",          parent: "~",                                 dest: ".tmux.conf"}
-  - {src: "tmux/.tmux",               parent: "~",                                 dest: ".tmux"}
-  - {src: "vim/.vimrc",               parent: "~",                                 dest: ".vimrc"}
-  - {src: "vim/.vim",                 parent: "~",                                 dest: ".vim"}
-  - {src: "vimperator/.vimperatorrc", parent: "~",                                 dest: ".vimperatorrc"}
-  - {src: "vimperator/.vimperator",   parent: "~",                                 dest: ".vimperator"}
-  - {src: "x/.Xresources.d",          parent: "~",                                 dest: ".Xresources.d"}
-  - {src: "x/.Xresources",            parent: "~",                                 dest: ".Xresources"}
-  - {src: "x/.xbindkeysrc",           parent: "~",                                 dest: ".xbindkeysrc"}
-  - {src: "x/.xinitrc",               parent: "~",                                 dest: ".xinitrc"}
-  - {src: "x/.xserverrc",             parent: "~",                                 dest: ".xserverrc"}
-  - {src: "xboxdrv/.xboxdrv",         parent: "~",                                 dest: ".xboxdrv"}
-  - {src: "zsh/.zsh.d",               parent: "~",                                 dest: ".zsh.d"}
-  - {src: "zsh/.zprofile",            parent: "~",                                 dest: ".zprofile"}
-  - {src: "zsh/.zshenv",              parent: "~",                                 dest: ".zshenv"}
-  - {src: "zsh/.zshrc",               parent: "~",                                 dest: ".zshrc"}
+  - {src: ".tigrc",               parent: "~",                                 dest: ".tigrc"}
+  - {src: ".tmux.conf",          parent: "~",                                 dest: ".tmux.conf"}
+  - {src: ".tmux",               parent: "~",                                 dest: ".tmux"}
+  - {src: ".vimrc",               parent: "~",                                 dest: ".vimrc"}
+  - {src: ".vim",                 parent: "~",                                 dest: ".vim"}
+  - {src: ".vimperatorrc", parent: "~",                                 dest: ".vimperatorrc"}
+  - {src: ".vimperator",   parent: "~",                                 dest: ".vimperator"}
+  - {src: ".Xresources.d",          parent: "~",                                 dest: ".Xresources.d"}
+  - {src: ".Xresources",            parent: "~",                                 dest: ".Xresources"}
+  - {src: ".xbindkeysrc",           parent: "~",                                 dest: ".xbindkeysrc"}
+  - {src: ".xinitrc",               parent: "~",                                 dest: ".xinitrc"}
+  - {src: ".xserverrc",             parent: "~",                                 dest: ".xserverrc"}
+  - {src: ".xboxdrv",         parent: "~",                                 dest: ".xboxdrv"}
+  - {src: ".zsh.d",               parent: "~",                                 dest: ".zsh.d"}
+  - {src: ".zprofile",            parent: "~",                                 dest: ".zprofile"}
+  - {src: ".zshenv",              parent: "~",                                 dest: ".zshenv"}
+  - {src: ".zshrc",               parent: "~",                                 dest: ".zshrc"}
 

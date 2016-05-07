@@ -1,8 +1,8 @@
 ---
-- name: Ensure dotfiles repository is cloned locally.
-  git:
-    repo: "{{ dotfiles_repo }}"
-    dest: "{{ dotfiles_repo_local_dest }}"
-    version: "fatline"
+#- name: Ensure dotfiles repository is cloned locally.
+  #git:
+    #repo: "{{ dotfiles_repo }}"
+    #dest: "{{ dotfiles_repo_local_dest }}"
+    #version: "fatline"
 
 - include: tasks/symlink.yml
