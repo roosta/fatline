@@ -1,0 +1,5 @@
+---
+- name: restart i3 with new config
+  command: i3-msg -q restart
+
+

@@ -3,7 +3,7 @@ dotfiles_repo: "git@github.com:roosta/dotfiles.git"
 dotfiles_repo_local_dest: "~/.dotfiles"
 dotfiles_files:
   - {src: "apvlv/.apvlv",             parent: "~",                                 dest: ".apvlv"}
-  - {src: "atom/config.cson",         parent: "~.atom",                            dest: "config.cson"}
+  - {src: "atom/config.cson",         parent: "~/.atom",                            dest: "config.cson"}
   - {src: "bash/.bashrc",             parent: "~",                                 dest: ".bashrc"}
   - {src: "bash/.bash_logout",        parent: "~",                                 dest: ".bash_logout"}
   - {src: "bash/.bash_profile",       parent: "~",                                 dest: ".bash_profile"}
@@ -47,7 +47,6 @@ dotfiles_files:
   - {src: "vimperator/.vimperatorrc", parent: "~",                                 dest: ".vimperatorrc"}
   - {src: "vimperator/.vimperator",   parent: "~",                                 dest: ".vimperator"}
   - {src: "x/.Xresources.d",          parent: "~",                                 dest: ".Xresources.d"}
-  #- {src: "x/.xinitrc.d",             parent: "~",                                 dest: ".xinitrc.d"}
   - {src: "x/.Xresources",            parent: "~",                                 dest: ".Xresources"}
   - {src: "x/.xbindkeysrc",           parent: "~",                                 dest: ".xbindkeysrc"}
   - {src: "x/.xinitrc",               parent: "~",                                 dest: ".xinitrc"}

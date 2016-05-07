@@ -1,0 +1,6 @@
+---
+dotfiles_repo: "git@github.com:roosta/dotfiles.git"
+dotfiles_repo_local_dest: "~/.dotfiles"
+dotfiles_files:
+  #- {src: "atom/config.cson",         parent: "~/.atom",                           dest: "config.cson"}
+  - {src: "test/delete-me",           parent: "~/.test",                           dest: "delete-me"}

@@ -1,6 +1,6 @@
 ---
 - name: Stat existing files at destination.
-  stat: path="{{ item.dest }}"
+  stat: path="{{ item.parent }}/{{ item.dest }}"
   register: existing_dotfile_info
   with_items: "{{ dotfiles_files }}"
 
@@ -15,7 +15,7 @@
   with_items: "{{ dotfiles_parent_info.results }}"
 
 - name: Remove existing dotfiles file if a replacement is being linked.
-  file: path="{{ item.item.parent}}/{{ item.item.dest }}" state=absent
+  file: path="{{ item.item.parent }}/{{ item.item.dest }}" state=absent mode=644
   when: item.stat.exists == true and item.stat.islnk == false
   with_items: "{{ existing_dotfile_info.results }}"
 
