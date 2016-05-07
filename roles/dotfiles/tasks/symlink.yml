@@ -10,7 +10,7 @@
   with_items: "{{ dotfiles_files }}"
 
 - name: create missing parent directory
-  file: path="{{ item.item.parent }}" state=directory mode=0755
+  file: path="{{ item.item.parent }}" state=directory mode=0755 recurse=yes
   when: item.stat.exists == false
   with_items: "{{ dotfiles_parent_info.results }}"
 
