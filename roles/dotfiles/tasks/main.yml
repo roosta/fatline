@@ -1,14 +1,5 @@
 ---
-#- name: Ensure dotfiles repository is cloned locally.
-  #git: repo="{{ dotfiles_repo }}" dest="{{ dotfiles_repo_local_dest }}" version="fatline"
+- name: Ensure dotfiles repository is cloned locally.
+  git: repo="{{ dotfiles_repo }}" dest="{{ dotfiles_repo_local_dest }}" version="fatline"
 
 - include: tasks/symlink.yml
-
-- name: write i3 config file
-  template: src=templates/i3.j2 dest=~/.i3/config backup=no
-  #notify:
-    #- restart i3
-
-#- handlers:
-  #- name: restart i3
-    #command: i3-msg -q restart

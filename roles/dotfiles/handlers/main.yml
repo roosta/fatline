@@ -1,3 +1,1 @@
 ---
-# handlers file for ansible-dotfiles
-- include: handlers/i3.yml

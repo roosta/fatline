@@ -5,3 +5,4 @@
     - vars/dark-fantastic-palette.yml
   roles:
     - dotfiles
+    - i3wm
