@@ -1,0 +1,31 @@
+# This setup assumes zsh conf to be in home and ~/.zsh.d
+# and that the zsh package is installed.
+- name: default shell to zsh
+  when: ansible_env.SHELL != "/usr/bin/zsh"
+  shell: chsh -s /usr/bin/zsh
+
+- name: stat plugins path.
+  stat: path="~/.zsh.d/plugins"
+  register: zsh_plugins_path
+
+- name: create plugins directory
+  when: zsh_plugins_path.stat.exists == false
+  file: path="~/.zsh.d/plugins" state=directory mode=0755
+
+- name: clone / update external libraries
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    clone: yes
+    update: yes
+  with_items: "{{ zsh_plugin_list }}"
+  #notify:
+    #source zshrc
+
+- name: symlink pure prompt files to fpath
+  file: src="~/.zsh.d/plugins/pure/{{ item.src }}" dest="~/.zsh.d/functions/{{ item.dest }}" state=link
+  with_items:
+    - { src: "pure.zsh", dest: "prompt_pure_setup" }
+    - { src: "async.zsh", dest: "async" }
+
+

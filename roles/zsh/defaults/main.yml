@@ -1,0 +1,8 @@
+---
+zsh_plugin_list:
+  - { repo: "https://github.com/zsh-users/zsh-completions",
+      dest: "~/.zsh.d/plugins/zsh-completions" }
+  - { repo: "https://github.com/zsh-users/zsh-history-substring-search",
+      dest: "~/.zsh.d/plugins/zsh-history-substring-search" }
+
+

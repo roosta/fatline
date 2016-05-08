@@ -1,9 +1,11 @@
 ---
 - hosts: all
   vars_files:
-    - vars/dotfiles.yml
     - host_vars/{{ ansible_hostname }}.yml
+    - vars/dotfiles.yml
     - vars/gruvbox_palette.yml
+    - vars/zsh_plugin_list.yml
   roles:
     - dotfiles
     - i3wm
+    - zsh

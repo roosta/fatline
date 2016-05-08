@@ -2,8 +2,10 @@
 - hosts: all
   tasks:
     - name: Stat existing files at destination.
-      stat: path="~/.zshrc"
+      stat: path="~/.zsh.d/plugins"
       register: debug_stat
 
-    - name: print
-      debug: msg="{{ debug_stat }}"
+
+    - debug: msg="{{ debug_stat.stat.islnk }}"
+
+    - debug: msg="{{ ansible_env.SHELL }}"
