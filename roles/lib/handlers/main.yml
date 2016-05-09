@@ -1,0 +1,12 @@
+---
+- name: build xkblayout-state
+  make: chdir=~/lib/xkblayout-state
+
+- name: install sack
+  command: ./install_sack.sh
+  args:
+    chdir: "~/lib/sack"
+
+- name: setup cljsh
+  file: path={{ home }}/lib/lein-repls/bin/cljsh mode=0755
+

@@ -6,6 +6,7 @@
     - vars/gruvbox_palette.yml
     - vars/zsh_plugin_list.yml
   roles:
-    - dotfiles
-    - i3wm
-    - zsh
+    #- dotfiles
+    #- i3wm
+    #- zsh
+    - lib

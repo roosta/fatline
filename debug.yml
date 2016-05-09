@@ -6,6 +6,6 @@
       register: debug_stat
 
 
-    - debug: msg="{{ debug_stat.stat.islnk }}"
+    - debug: msg="{{ debug_stat.stat.exists }}"
 
     - debug: msg="{{ ansible_env.SHELL }}"
