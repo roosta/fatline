@@ -2,7 +2,7 @@
 # and that the zsh package is installed.
 - name: default shell to zsh
   when: ansible_env.SHELL != "/usr/bin/zsh"
-  shell: chsh -s /usr/bin/zsh
+  shell: chsh -s {{ ansible_env.SHELL }}
 
 - name: stat plugins path.
   stat: path="~/.zsh.d/plugins"
