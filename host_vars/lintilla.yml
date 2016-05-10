@@ -20,10 +20,10 @@ i3_status_font: "pango:Essential PragmataPro, FontAwesome 9"
 i3_status_command: "py3status -c "
 
  # define various folders to put its respective files
-sbin_dir: "{{home}}/lib"
-bin_dir : "{{home}}/bin"
-lib_dir : "{{home}}/lib"
-font_dir: "{{home}}/.fonts/misc"
+sbin_dir: "~/lib"
+bin_dir : "~/bin"
+lib_dir : "~/lib"
+font_dir: "~/.fonts/misc"
 
 # vim:ft=yaml:ts=2:sw=2
 

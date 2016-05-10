@@ -1,50 +1,48 @@
 ---
 - name: stat lib path
-  stat: path="~/lib"
+  stat: path="{{ lib_dir }}"
   register: existing_lib_path
 
 - name: create library local path
-  file: path={{ library_local_path }} state=directory mode=0755
+  file: path="{{ lib_dir }}" state=directory mode=0755
   when: existing_lib_path.stat.exists == false
 
 - name: clone or update libraries with no action
   git:
     repo: "{{ item.repo }}"
-    dest: "{{ library_local_path }}/{{ item.dest }}"
+    dest: "{{ lib_dir }}/{{ item.dest }}"
   with_items:
     - { repo: "https://github.com/fidian/ansi",
-    dest: "~/lib/ansi" }
+    dest: "{{ lib_dir }}/ansi" }
     - { repo: "https://github.com/iye/lightsOn",
-    dest: "~/lib/lightsOn" }
+    dest: "{{ lib_dir }}/lightsOn" }
 
 - name: clone xkblayout-state
   git:
     repo: "https://github.com/nonpop/xkblayout-state"
-    dest: "{{ library_local_path }}"
+    dest: "{{ lib_dir }}/xkblayout-state"
   notify:
     - build xkblayout-state
 
 - name: clone sack
   git:
     repo: "https://github.com/sampson-chen/sack"
-    dest: "~/lib/sack"
+    dest: "{{ lib_dir }}/sack"
   notify:
     - install sack
 
 - name: clone lein repls
   git:
     repo: "https://github.com/franks42/lein-repls"
-    dest: "~/lib/lein-repls"
+    dest: "{{ lib_dir }}/lein-repls"
   notify:
     - setup cljsh
 
 - name: symlink local binaries
   file: src={{ item.src }} dest={{ item.dest }} state=link
   with_items:
-    - { src: "{{ home }}/lib/ansi/ansi", dest: "~/bin/ansi" }
-    - { src: "{{ home }}/lib/lightsOn/lightsOn.sh", dest: "~/bin/lightsOn" }
-    - { src: "{{ home }}/lib/xkblayout-state/xkblayout-state", dest: "~/bin/xkblayout-state" }
-    - { src: "{{ home }}/lib/lein-repls/bin/cljsh", dest: "~/bin/cljsh" }
-  tags:
-    - bin
-    - init
+    - { src: "{{ lib_dir }}/ansi/ansi", dest: "{{ bin_dir }}/ansi" }
+    - { src: "{{ lib_dir }}/lightsOn/lightsOn.sh", dest: "{{ bin_dir }}/lightsOn" }
+    - { src: "{{ lib_dir }}/xkblayout-state/xkblayout-state", dest: "{{ bin_dir }}/xkblayout-state" }
+    - { src: "{{ lib_dir }}/lein-repls/bin/cljsh", dest: "{{ bin_dir }}/cljsh" }
+
