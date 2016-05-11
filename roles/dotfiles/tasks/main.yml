@@ -6,3 +6,4 @@
     #version: "fatline"
 
 - include: tasks/symlink.yml
+- include: tasks/tmux.yml
