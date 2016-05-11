@@ -15,4 +15,5 @@
     #- dotfiles
     #- i3wm
     #- zsh
-    - lib
+    #- lib
+    - projects
