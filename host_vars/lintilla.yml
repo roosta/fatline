@@ -19,7 +19,7 @@ i3_status_font: "pango:Essential PragmataPro, FontAwesome 9"
 
 i3_status_command: "py3status -c "
 
- # define various folders to put its respective files
+ # define user locations
 sbin_dir: "~/lib"
 bin_dir : "~/bin"
 lib_dir : "~/lib"

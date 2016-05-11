@@ -1,0 +1,9 @@
+---
+- name: clone sack
+  git:
+    repo: "https://github.com/sampson-chen/sack"
+    dest: "{{ lib_dir }}/sack"
+
+- name: install sack
+  shell: ./install_sack.sh chdir="~/lib/sack"
+

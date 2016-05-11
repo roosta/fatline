@@ -1,0 +1,12 @@
+---
+- name: clone lein repls
+  git:
+    repo: "https://github.com/franks42/lein-repls"
+    dest: "{{ lib_dir }}/lein-repls"
+
+- name: chmod cljsh
+  file: path={{ lib_dir }}/lein-repls/bin/cljsh mode=0755
+
+- name: link binary to path
+  file: src="{{ lib_dir }}/lein-repls/bin/cljsh" dest="{{ bin_dir }}/cljsh" state=link
+

@@ -1,0 +1,14 @@
+---
+- name: clone xkblayout-state
+  git:
+    repo: "https://github.com/nonpop/xkblayout-state"
+    dest: "{{ lib_dir }}/xkblayout-state"
+
+- name: build xkblayout-state
+  command: make
+  args:
+    chdir: "{{ lib_dir }}/xkblayout-state"
+
+- name: symlink xkblayout-state binary binaries
+  file: src="{{ lib_dir }}/xkblayout-state/xkblayout-state" dest="{{ bin_dir }}/xkblayout-state" state=link
+
