@@ -1,1 +1,1 @@
-find -L $1 -type l -delete
+find $1 -xtype l -delete
