@@ -1,10 +1,16 @@
 ---
 - hosts: all
+
+  #pre_tasks:
+    #- name: clear out any dangling symlinks
+      #shell: ./rmlinks.sh ~
+
   vars_files:
     - host_vars/{{ ansible_hostname }}.yml
     - vars/dotfiles.yml
     - vars/gruvbox_palette.yml
     - vars/zsh_plugin_list.yml
+    - vars/fatline.yml
   roles:
     #- dotfiles
     #- i3wm
