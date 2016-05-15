@@ -5,21 +5,21 @@
 # do the handling this way for now
 
 # define playbook
-playbook=$HOME/.dotfiles/dotfiles.yml
+playbook=$HOME/.fatline/fatline.yml
 
 run () {
   (( $# >= 1 )) || usage
   case "$1" in
-    "edit")
-      if [[ -n "$2" ]]; then
-        vim ~/.dotfiles/tasks/${2}.yml
-      else
-        usage
-      fi
-      ;;
-    "vars")
-      vim ~/.dotfiles/vars/$(hostname).yml
-      ;;
+    #"edit")
+      #if [[ -n "$2" ]]; then
+        #vim ~/.dotfiles/tasks/${2}.yml
+      #else
+        #usage
+      #fi
+      #;;
+    #"vars")
+      #vim ~/.dotfiles/vars/$(hostname).yml
+      #;;
     "help")
       usage
       ;;

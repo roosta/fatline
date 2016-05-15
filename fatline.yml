@@ -12,8 +12,8 @@
     - vars/zsh_plugin_list.yml
     - vars/fatline.yml
   roles:
-    - dotfiles
-    - i3wm
-    - zsh
-    - lib
-    - projects
+    - { role: dotfiles, tags: [dotfiles] }
+    - { role: i3wm, tags: [i3wm] }
+    - { role: zsh, tags: [zsh] }
+    - { role: lib, tags: [lib] }
+    - { role: projects, tags: [projects] }
