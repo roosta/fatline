@@ -1,19 +1,23 @@
 ---
-# define host outputs and various associated vars
-outputs:
-  - display: "DVI-I-2"
+# define monitors and their priority
+primary_display: "DVI-I-2"
+secondary_display: "DVI-I-3"
+tertiary_display: "HDMI-0"
+
+# i3bar output variables
+bar_outputs:
+  - display: ["DVI-I-2", "HDMI-0"]
     bar_id: "bar-primary"
     stat_conf: "~/.i3/status/lintilla_0.i3status"
     bar_pos: "top"
     tray_out: "primary"
 
-  - display: "DVI-I-3"
+  - display: ["DVI-I-3"]
     bar_id: "bar-secondary"
     stat_conf: "~/.i3/status/lintilla_1.i3status"
     bar_pos: "top"
     tray_out: "primary"
 
-# i3 variables.
 i3_font: "pango:Essential PragmataPro 9"
 i3_status_font: "pango:Essential PragmataPro, FontAwesome 9"
 
