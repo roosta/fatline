@@ -1,5 +1,13 @@
 ---
 - hosts: all
+  vars:
+    fatline_local_path: "~/.fatline"
+    sbin_dir: "~/lib"
+    bin_dir : "~/bin"
+    lib_dir : "~/lib"
+    font_dir: "~/.fonts/misc"
+    projects_dir: "~/dev"
+
 
   #pre_tasks:
     #- name: clear out any dangling symlinks
@@ -10,10 +18,10 @@
     - vars/dotfiles.yml
     - vars/gruvbox_palette.yml
     - vars/zsh_plugin_list.yml
-    - vars/fatline.yml
+
   roles:
     - { role: dotfiles, tags: [dotfiles] }
     - { role: i3wm, tags: [i3wm] }
     - { role: zsh, tags: [zsh] }
     - { role: lib, tags: [lib] }
-    - { role: projects, tags: [projects] }
+    - { role: projects, tags: [dev, projects] }
