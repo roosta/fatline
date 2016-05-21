@@ -17,9 +17,9 @@ run () {
         #usage
       #fi
       #;;
-    #"vars")
-      #vim ~/.dotfiles/vars/$(hostname).yml
-      #;;
+    "host_vars")
+      vim ~/.fatline/host_vars/$(hostname).yml
+      ;;
     "help")
       usage
       ;;
