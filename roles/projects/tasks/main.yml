@@ -15,6 +15,6 @@
     - { src: "{{ projects_dir }}/utils",                    dest: "~/utils" }
     - { src: "{{ projects_dir }}/colors",                   dest: "~/colors" }
     - { src: "{{ projects_dir }}/LS_COLORS/LS_COLORS",      dest: "~/.dircolors" }
-    - { src: "{{ projects_dir }}/utils/chdisp_xrandr.sh",   dest: "{{ bin_dir }}/chdisp" }
+    - { src: "{{ projects_dir }}/utils/chdisp_nvidia.sh",   dest: "{{ bin_dir }}/chdisp" }
     - { src: "{{ projects_dir }}/utils/bakc.sh",            dest: "{{ bin_dir }}/bakc" }
     - { src: "{{ projects_dir }}/utils/touchpad_toggle.sh", dest: "{{ bin_dir }}/touchpad_toggle" }
