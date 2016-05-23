@@ -8,7 +8,6 @@
     font_dir: "~/.fonts/misc"
     projects_dir: "~/dev"
 
-
   #pre_tasks:
     #- name: clear out any dangling symlinks
       #shell: ./rmlinks.sh ~
