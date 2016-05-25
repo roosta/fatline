@@ -1,4 +1,4 @@
 ---
 - name: clone tpm
-  git: repo="https://github.com/tmux-plugins/tpm" dest=~/.tmux/plugins/tmp
+  git: repo="https://github.com/tmux-plugins/tpm" dest=~/.tmux/plugins/tpm
 
