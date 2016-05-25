@@ -15,4 +15,4 @@ Manage libraries requires cloning, building that is not installed with system pa
 Manage personal dev projects that requires cloning and/or special operations.
 
 ### zsh
-Manage zsh. ~~~Change shell~~~ pull in plugins required by zsh config.
+Manage zsh. ~~Change shell~~ pull in plugins required by zsh config.
