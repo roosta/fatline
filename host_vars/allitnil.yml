@@ -1,26 +1,20 @@
 ---
-user: roosta
-home: "/home/{{user}}"
-dotfiles: "{{home}}/.dotfiles"
+# define monitors and their priority
+primary_display: "eDP1"
+secondary_display: false
+tertiary_display: false
 
-# define host outputs and various associated vars
-bar_outputs: [{display: "eDP1", bar_id: "bar-primary", stat_conf: "~/.i3/status/allitnil_0.i3status", bar_pos: "top", tray_out: "primary"}, {display: false}]
+# i3bar output variables
+bar_outputs:
+  - display: ["eDP1"]
+    bar_id: "bar-primary"
+    stat_conf: "~/.i3/status/allitnil_0.i3status"
+    bar_pos: "top"
+    tray_out: "primary"
 
-output_layout: "xrandr --output eDP1 --mode 1600x900 --primary"
-
-# i3 variables.
 i3_font: "pango:Essential PragmataPro 9"
-i3_status_font: "pango:Essential PragmataPro, FontAwesome 8"
-i3_status_command: "py3status -c"
-
-# define where to put the tracked fonts
-font_dir: "{{home}}/.fonts/misc"
-lib_dir: "{{home}}/lib"
-proj_dir: "{{home}}/projects"
-bin_dir: "{{home}}/bin"
-sbin_dir: "{{home}}/sbin"
-colors_dir: "{{home}}/colors"
-scripts_dir: "{{home}}/scripts"
+i3_status_font: "pango:Essential PragmataPro, FontAwesome 9"
+i3_status_command: "py3status -c "
 
 # vim:ft=yaml:ts=2:sw=2
 
