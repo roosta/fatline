@@ -1,6 +1,5 @@
-#!/bin/env bash
-sudo pacman -S ansible && \
-  mkdir ~/.ansible && \
+#!/bin/sh
+mkdir ~/.ansible && \
   mkdir ~/bin && \
   ln -s ~/.dotfiles/ansible/.ansible.cfg ~ && \
   ln -s ~/.dotfiles/ansible/hosts ~/.ansible && \
