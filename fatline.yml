@@ -15,7 +15,7 @@
   vars_files:
     - host_vars/{{ ansible_hostname }}.yml
     - vars/dotfiles.yml
-    - vars/gruvbox_palette.yml
+    - ~/colors/vars/sourcery_palette.yml
     - vars/zsh_plugin_list.yml
 
   roles:
