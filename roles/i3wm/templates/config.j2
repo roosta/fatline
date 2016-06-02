@@ -127,7 +127,7 @@ workspace $SWS2_COM output {{ secondary_display }}
 
 # Options
 focus_follows_mouse no
-new_window pixel 2
+new_window pixel 1
 hide_edge_borders none
 
 # WINDOW WORKSPACE ASSIGNMENT
@@ -381,7 +381,7 @@ font {{ i3_font }}
 # <class>               <border> <background> <foreground> <indicator>
 client.focused          {{ neutral_blue }} {{ neutral_blue }} {{ light1 }} {{ neutral_magenta }}
 client.focused_inactive {{ dark2 }} {{ light4 }} {{ dark0 }} {{ neutral_magenta }}
-client.unfocused        {{ dark2 }} {{ dark2 }} {{ gray_245 }} {{ neutral_magenta }}
+client.unfocused        {{ dark1 }} {{ dark1 }} {{ gray_245 }} {{ neutral_magenta }}
 client.urgent           {{ neutral_orange }} {{ neutral_orange }} {{ dark0 }} {{ neutral_magenta }}
 client.placeholder      {{ neutral_magenta }} {{ neutral_cyan }} {{ dark0 }} {{ neutral_magenta }}
 
@@ -406,7 +406,7 @@ bar {
     # <workclass>      <border> <background> <foreground>
     focused_workspace  {{ faded_blue }} {{ faded_blue }} {{ light1 }}
     active_workspace   {{ dark0 }} {{ dark0 }} {{ light1 }}
-    inactive_workspace {{ dark0 }} {{ dark0 }} {{ gray_245 }}
+    inactive_workspace {{ dark0 }} {{ dark0 }} {{ light4 }}
     urgent_workspace   {{ neutral_orange }} {{ neutral_orange }} {{ dark0 }}
   }
 }
