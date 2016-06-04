@@ -6,7 +6,7 @@
     bin_dir : "~/bin"
     lib_dir : "~/lib"
     font_dir: "~/.fonts/misc"
-    projects_dir: "~/dev"
+    dev_dir: "~/dev"
 
   #pre_tasks:
     #- name: clear out any dangling symlinks
@@ -15,12 +15,14 @@
   vars_files:
     - host_vars/{{ ansible_hostname }}.yml
     - vars/dotfiles.yml
-    - ~/colors/vars/sourcery_palette.yml
+    - vars/sourcery_palette.yml
     - vars/zsh_plugin_list.yml
 
   roles:
-    - { role: dotfiles, tags: [dotfiles] }
-    - { role: i3wm, tags: [i3wm] }
-    - { role: zsh, tags: [zsh] }
-    - { role: lib, tags: [lib] }
-    - { role: projects, tags: [dev, projects] }
+    - { role: symlink, tags: [symlink] }
+    - { role: fonts,   tags: [fonts] }
+    - { role: xorg,    tags: [xorg] }
+    - { role: i3wm,    tags: [i3wm] }
+    - { role: shell,   tags: [shell] }
+    - { role: lib,     tags: [lib] }
+    - { role: dev,     tags: [dev, projects] }
