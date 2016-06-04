@@ -36,7 +36,6 @@ dotfiles_files:
   - {src: ".screenrc",          parent: "~",                                 dest: ".screenrc"}
   - {src: "sublime-text-3",     parent: "~/.config/sublime-text-3/Packages", dest: "User"}
   - {src: "subversion",         parent: "~",                                 dest: ".subversion"}
-  - {src: ".taskrc",            parent: "~",                                 dest: ".taskrc"}
   - {src: "terminfo/.terminfo", parent: "~",                                 dest: ".terminfo"}
   - {src: "termite",            parent: "~/.config",                         dest: "termite"}
   - {src: ".tigrc",             parent: "~",                                 dest: ".tigrc"}
