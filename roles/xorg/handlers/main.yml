@@ -1,0 +1,6 @@
+---
+- name: xrdb merge
+  command: xrdb -merge ~/.Xresources
+
+- name: xrdb load
+  command: xrdb -load ~/.Xresources
