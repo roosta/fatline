@@ -23,6 +23,8 @@ set $locker xscreensaver-command --lock
 # tmux session management
 #set $term urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec mux dev"
 set $term urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s main"
+#set $term termite -e "bash -c 'tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s main'"
+
 
 # set terminal command.
 #set $term urxvtc
@@ -213,6 +215,8 @@ set $mod Mod4
 floating_modifier $mod
 
 bindsym $mod+Return exec $term
+
+bindsym $mod+Shift+Return exec firefox
 #bindsym $mod+Shift+Return exec $tmux_new
 
 # kill focused window
