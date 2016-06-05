@@ -396,7 +396,7 @@ bar {
 {% for disp in display %}
   output {{ disp }}
 {% endfor %}
-  status_command {{ i3_status_command }} {{ stat_conf }}
+  status_command {{ i3_status_command }}/{{ stat_conf }}
   font {{ i3_status_font }}
   position {{ bar_pos }}
   tray_output {{ tray_out }}

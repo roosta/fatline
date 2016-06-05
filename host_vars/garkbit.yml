@@ -9,17 +9,32 @@ bar_outputs:
     stat_conf: "~/.i3/status/garkbit_0.i3status"
     bar_pos: "top"
     tray_out: "primary"
+    modules:
+      - "spotify"
+      - "volume_status"
+      - "arch_updates"
+      - "keyboard_layout"
+      - "path_exists VPN"
+      - "net_rate"
+      - "sysdata"
+      - "nvidia_temp"
+      - "dropboxd_status"
+      - "tztime local"
 
   - display: ["HDMI1"]
     bar_id: "bar-secondary"
     stat_conf: "~/.i3/status/garkbit_1.i3status"
     bar_pos: "top"
     tray_out: "primary"
+    modules:
+      - "whatismyip"
+      - "ethernet enp0s0"
+      - "tztime local"
 
-# i3-wm
+
 i3_font: "pango:Essential PragmataPro 9"
 i3_status_font: "pango:Essential PragmataPro, FontAwesome 9"
-i3_status_command: "py3status -c"
+i3_status_command: "py3status -c ~/.i3/status"
 
 # vim:ft=yaml:ts=2:sw=2
 
