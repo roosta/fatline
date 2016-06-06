@@ -8,20 +8,42 @@ tertiary_display: "HDMI-0"
 bar_outputs:
   - display: ["DVI-I-2", "HDMI-0"]
     bar_id: "bar-primary"
-    stat_conf: "~/.i3/status/lintilla_0.i3status"
+    stat_conf: "lintilla_0.py3status"
     bar_pos: "top"
     tray_out: "primary"
+    modules:
+      - "spotify"
+      - "volume_status"
+      - "arch_updates"
+      - "keyboard_layout"
+      - "path_exists VPN"
+      - "net_rate"
+      - "sysdata"
+      - "nvidia_temp"
+      - "dropboxd_status"
+      - "tztime local"
 
   - display: ["DVI-I-3"]
     bar_id: "bar-secondary"
-    stat_conf: "~/.i3/status/lintilla_1.i3status"
+    stat_conf: "lintilla_1.py3status"
     bar_pos: "top"
     tray_out: "primary"
+    modules:
+      - "whatismyip"
+      - "ethernet bridge0"
+      - "disk /"
+      - "disk /home"
+      - "disk /mnt/data"
+      - "disk /mnt/games"
+      - "disk /mnt/archive"
+      - "disk /mnt/netmedia"
+      - "disk /mnt/netbackup"
+      - "tztime local"
 
 i3_font: "pango:Essential PragmataPro 9"
 i3_status_font: "pango:Essential PragmataPro, FontAwesome 9"
 
-i3_status_command: "py3status -c "
+i3_status_command: "py3status -c ~/.i3/status"
 
 # vim:ft=yaml:ts=2:sw=2
 

@@ -56,4 +56,6 @@ dotfiles_files:
   - {src: ".zshenv",            parent: "~",                                 dest: ".zshenv"}
   - {src: ".zshrc",             parent: "~",                                 dest: ".zshrc"}
   - {src: ".yabar.conf",        parent: "~",                                 dest: ".yabar.conf"}
+  - {src: ".ptpython",          parent: "~",                                 dest: ".ptpython"}
+  - {src: ".ipython",           parent: "~",                                 dest: ".ipython"}
 

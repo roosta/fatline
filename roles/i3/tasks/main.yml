@@ -1,0 +1,13 @@
+---
+- name: write i3 config file
+  template: src=templates/config.j2 dest=~/.i3/config backup=no
+  notify:
+    - restart i3
+
+- name: write status config
+  template: src=templates/py3status.j2 dest=~/.i3/status/{{ item.stat_conf }}
+  with_items:
+    - "{{ bar_outputs }}"
+  notify:
+    - restart i3
+

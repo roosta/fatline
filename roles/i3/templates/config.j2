@@ -23,6 +23,8 @@ set $locker xscreensaver-command --lock
 # tmux session management
 #set $term urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec mux dev"
 set $term urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s main"
+#set $term termite -e "bash -c 'tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s main'"
+
 
 # set terminal command.
 #set $term urxvtc
@@ -127,7 +129,7 @@ workspace $SWS2_COM output {{ secondary_display }}
 
 # Options
 focus_follows_mouse no
-new_window pixel 2
+new_window pixel 1
 hide_edge_borders none
 
 # WINDOW WORKSPACE ASSIGNMENT
@@ -171,6 +173,8 @@ assign [class="(?i)skype"] $SWS2_COM
 assign [class="(?i)slack"] $SWS2_COM
 assign [class="(?i)thunderbird"] $SWS2_COM
 
+assign [class="(?i)transmission-gtk"] $FWS1
+
 # WINDOW BEHAVIOUR
 # ----------------
 # create some rules to force floating on certain roles/classes
@@ -193,7 +197,8 @@ for_window [class="(?i)yad"] floating enable
 
 ## WINDOW SIZE
 ## -----------
-for_window [class="(?i)Pidgin"]                  floating_maximum_size 50 x 75
+for_window [class="(?i)Pidgin"]   floating_maximum_size 50 x 75
+for_window [class="(?i)nitrogen"] floating_maximum_size 520 x 120
 
 # BORDER
 # ------
@@ -210,6 +215,8 @@ set $mod Mod4
 floating_modifier $mod
 
 bindsym $mod+Return exec $term
+
+bindsym $mod+Shift+Return exec firefox
 #bindsym $mod+Shift+Return exec $tmux_new
 
 # kill focused window
@@ -378,7 +385,7 @@ font {{ i3_font }}
 # <class>               <border> <background> <foreground> <indicator>
 client.focused          {{ neutral_blue }} {{ neutral_blue }} {{ light1 }} {{ neutral_magenta }}
 client.focused_inactive {{ dark2 }} {{ light4 }} {{ dark0 }} {{ neutral_magenta }}
-client.unfocused        {{ dark2 }} {{ dark2 }} {{ gray_245 }} {{ neutral_magenta }}
+client.unfocused        {{ dark1 }} {{ dark1 }} {{ gray_245 }} {{ neutral_magenta }}
 client.urgent           {{ neutral_orange }} {{ neutral_orange }} {{ dark0 }} {{ neutral_magenta }}
 client.placeholder      {{ neutral_magenta }} {{ neutral_cyan }} {{ dark0 }} {{ neutral_magenta }}
 
@@ -389,7 +396,7 @@ bar {
 {% for disp in display %}
   output {{ disp }}
 {% endfor %}
-  status_command {{ i3_status_command }} {{ stat_conf }}
+  status_command {{ i3_status_command }}/{{ stat_conf }}
   font {{ i3_status_font }}
   position {{ bar_pos }}
   tray_output {{ tray_out }}
@@ -403,7 +410,7 @@ bar {
     # <workclass>      <border> <background> <foreground>
     focused_workspace  {{ faded_blue }} {{ faded_blue }} {{ light1 }}
     active_workspace   {{ dark0 }} {{ dark0 }} {{ light1 }}
-    inactive_workspace {{ dark0 }} {{ dark0 }} {{ gray_245 }}
+    inactive_workspace {{ dark0 }} {{ dark0 }} {{ light4 }}
     urgent_workspace   {{ neutral_orange }} {{ neutral_orange }} {{ dark0 }}
   }
 }
