@@ -22,7 +22,7 @@
     - { role: symlink, tags: [symlink] }
     - { role: fonts,   tags: [fonts] }
     - { role: xorg,    tags: [xorg] }
-    - { role: i3wm,    tags: [i3wm] }
+    - { role: i3,      tags: [i3, i3wm] }
     - { role: shell,   tags: [shell] }
     - { role: lib,     tags: [lib] }
     - { role: dev,     tags: [dev, projects] }

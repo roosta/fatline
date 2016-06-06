@@ -5,7 +5,7 @@ A collection of roles to manage configuration on multiple hosts.
 ### symlink
 Symlinks dotfiles from an external repo like [this](https://github.com/roosta/dotfiles)
 
-### i3wm
+### i3
 Use template to generate i3 config based on host_vars set for each host machine.
 
 ### lib
