@@ -6,24 +6,23 @@ secondary_display: "HDMI1"
 bar_outputs:
   - display: ["HDMI2"]
     bar_id: "bar-primary"
-    stat_conf: "~/.i3/status/garkbit_0.i3status"
+    stat_conf: "garkbit_0.i3status"
     bar_pos: "top"
     tray_out: "primary"
     modules:
       - "spotify"
-      - "volume_status"
+      #- "volume_status"
       - "arch_updates"
       - "keyboard_layout"
       - "path_exists VPN"
       - "net_rate"
       - "sysdata"
-      - "nvidia_temp"
       - "dropboxd_status"
       - "tztime local"
 
   - display: ["HDMI1"]
     bar_id: "bar-secondary"
-    stat_conf: "~/.i3/status/garkbit_1.i3status"
+    stat_conf: "garkbit_1.i3status"
     bar_pos: "top"
     tray_out: "primary"
     modules:
