@@ -8,13 +8,23 @@ tertiary_display: false
 bar_outputs:
   - display: ["eDP1"]
     bar_id: "bar-primary"
-    stat_conf: "~/.i3/status/allitnil_0.i3status"
+    stat_conf: "allitnil_0.i3status"
     bar_pos: "top"
     tray_out: "primary"
+    modules:
+      - "battery_level"
+      - "volume_status"
+      - "arch_updates"
+      - "keyboard_layout"
+      - "path_exists VPN"
+      - "net_rate"
+      - "sysdata"
+      - "dropboxd_status"
+      - "tztime local"
 
 i3_font: "pango:Essential PragmataPro 9"
 i3_status_font: "pango:Essential PragmataPro, FontAwesome 9"
-i3_status_command: "py3status -c "
+i3_status_command: "py3status -c ~/.i3/status"
 
 # vim:ft=yaml:ts=2:sw=2
 
