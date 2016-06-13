@@ -1,8 +1,8 @@
 # This setup assumes zsh conf to be in home and ~/.zsh.d
 # and that the zsh package is installed.
-- name: default shell to zsh
-  when: ansible_env.SHELL != "/usr/bin/zsh"
-  shell: chsh -s $(which zsh)
+#- name: default shell to zsh
+#  when: ansible_env.SHELL != "/usr/bin/zsh"
+#  shell: chsh -s $(which zsh)
 
 - name: stat plugins path.
   stat: path="~/.zsh.d/plugins"
