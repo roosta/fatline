@@ -26,4 +26,4 @@
     - { role: shell,   tags: [shell] }
     - { role: lib,     tags: [lib] }
     - { role: dev,     tags: [dev, projects] }
-    - { role: xorg,    tags: [xorg] }
+    - { role: xorg,    tags: [xorg, x] }

@@ -4,30 +4,20 @@
 # │▀▀▀▀▀▀▀░░░▀▀▀░▀▀░░▀░▀░▀░▀░░░▀▀▀▀▀▀▀│
 # │▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀│
 # │ Author: Roosta <mail@roosta.sh>   │
-# │ Site  : http://dotfiles.roosta.sh │
+# │ Site  : https://roosta.sh         │
 # │ Github: https://github.com/roosta │
-# └────────┬──────────────────────────┘
-# Sources: │
-# ┌────────┘
-# │ http://i3wm.org/docs/user-contributed/lzap-config.html
-# │ http://dotshare.it (picked from various i3 confs, color schemes..etc)
-# ┆
-#
+# └───────────────────────────────────┘
 
-## VARIABLES
-# -------------------------
+# ------------------- 
+# VARIABLES
+# -------------------
 # fast way to reach power settings for system. Requires polkit.
 set $locker xscreensaver-command --lock
 #set $locker i3lock --image=$HOME/.background/pattern-01.png -t && sleep 1
 
 # tmux session management
-#set $term urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec mux dev"
 set $term urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s main"
 #set $term termite -e "bash -c 'tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s main'"
-
-
-# set terminal command.
-#set $term urxvtc
 
 # set scrot/screenshot file arguments
 set $screenshot "$HOME/Pictures/screenshots/screenshot_$(date +%Y-%m-%d@%H-%M-%S).png"
@@ -36,13 +26,10 @@ set $screenshot "$HOME/Pictures/screenshots/screenshot_$(date +%Y-%m-%d@%H-%M-%S
 set $fullrestart "ansible-playbook $HOME/.dotfiles/dotfiles.yml -t i3"
 #set $fullreload "ansible-playbook $HOME/.dotfiles/dotfiles.yml -t i3 && i3-msg reload"
 
-## OPTIONS
-# --------
-# jump to previous workspace by hitting first ws button again
-#workspace_auto_back_and_forth yes
+# --------------------
+# WORKSPACES
+# -------------------- 
 
-## WORKSPACES
-# ------------------------------
 # Numbers in front is for sorting order on i3bar.
 # In each bar numbers are stripped. See bar config below.
 
@@ -347,8 +334,8 @@ mode "$mode_system" {
   bindsym l       exec --no-startup-id $locker, mode "default"
   bindsym e       exec --no-startup-id i3-msg exit, mode "default"
   bindsym s       exec --no-startup-id $locker && systemctl suspend, mode "default"
-  bindsym r       exec --no-startup-id wmctrl -c firefox && systemctl reboot, mode "default"
-  bindsym Shift+s exec --no-startup-id wmctrl -c firefox && systemctl poweroff -i, mode "default"
+  bindsym r       exec --no-startup-id systemctl reboot, mode "default"
+  bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
