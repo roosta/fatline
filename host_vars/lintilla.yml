@@ -12,6 +12,7 @@ bar_outputs:
     bar_pos: "top"
     tray_out: "primary"
     modules:
+      # - "mpd_status"
       - "spotify"
       - "volume_status"
       - "arch_updates"
@@ -19,7 +20,7 @@ bar_outputs:
       - "path_exists VPN"
       - "net_rate"
       - "sysdata"
-      - "nvidia_temp"
+      # - "nvidia_temp"
       - "dropboxd_status"
       - "tztime local"
 
