@@ -10,13 +10,23 @@ playbook=$HOME/.fatline/fatline.yml
 run () {
   (( $# >= 1 )) || usage
   case "$1" in
-    #"edit")
-      #if [[ -n "$2" ]]; then
-        #vim ~/.dotfiles/tasks/${2}.yml
-      #else
-        #usage
-      #fi
-      #;;
+    "edit")
+      if [[ -n "$2" ]]; then
+        case "$2" in
+          "host_vars")
+            $EDITOR ~/.faline/host_vars/$(hostname).yml
+            ;;
+          "palette")
+            $EDITOR ~/.fatline/vars/palette.yml
+            ;;
+          *)
+            useage
+            ;;
+        esac
+      else
+        usage
+      fi
+      ;;
     "host_vars")
       vim ~/.fatline/host_vars/$(hostname).yml
       ;;
