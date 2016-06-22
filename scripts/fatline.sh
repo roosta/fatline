@@ -14,7 +14,7 @@ run () {
       if [[ -n "$2" ]]; then
         case "$2" in
           "host_vars")
-            $EDITOR ~/.faline/host_vars/$(hostname).yml
+            $EDITOR ~/.fatline/host_vars/$(hostname).yml
             ;;
           "palette")
             $EDITOR ~/.fatline/vars/palette.yml
