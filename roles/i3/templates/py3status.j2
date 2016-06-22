@@ -2,10 +2,10 @@ general {
   output_format = "i3bar"
   colors = true
   interval = 5
-  color_bad = {{ red }}
-  color_good = {{ white }}
-  color_degraded = {{ yellow }}
-  color_separator = {{ gray }}
+  color_bad = {{ bright_red }}
+  color_good = {{ bright_green }}
+  color_degraded = {{ bright_orange }}
+  color_separator = {{ cyan }}
 }
 
 {% for mod in item.modules %}
@@ -54,16 +54,16 @@ spotify {
 }
 
 sysdata cpu {
-  format = "cpu: {cpu_usage}%, temp: {cpu_temp}"
-  med_threshold = 25
+  format = "CPU: {cpu_usage}%, temp: {cpu_temp}"
+  med_threshold = 50
   on_click 1 = "exec i3-sensible-terminal -e htop"
   on_click 3 = "exec killall htop"
 }
 
 
 sysdata mem {
-  format = "mem: {mem_used}/{mem_total} gb"
-  med_threshold = 25
+  format = "MEM: {mem_used}/{mem_total}"
+  med_threshold = 50
   on_click 1 = "exec i3-sensible-terminal -e htop"
   on_click 3 = "exec killall htop"
 }
@@ -71,9 +71,15 @@ sysdata mem {
 # print current keyboard layout, with color codes for language
 keyboard_layout {
   format = " {layout}"
-  colors = "us={{ white }}, no={{ yellow }}"
+  colors = "us={{ bright_green }}, no={{ bright_orange }}"
 }
 
+imap {
+  user = "{{ mailboxUser }}"
+  password = "{{ mailboxPass }}"
+  new_mail_color = "{{ bright_orange }}"
+  imap_server = "{{ mailboxServer }}"
+}
 # control the volume with your mouse (need >i3-4.8)
 # launch alsamixer when I left click
 # kill it when I right click
@@ -118,8 +124,12 @@ path_exists VPN {
   path = "/proc/sys/net/ipv4/conf/tun0"
 }
 
-tztime local {
-  format = " %Y-%m-%d  %H:%M:%S"
+tztime date {
+  format = "%Y-%m-%d"
+}
+
+tztime time {
+  format = "%H:%M:%S"
 }
 
 load {

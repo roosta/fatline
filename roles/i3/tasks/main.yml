@@ -5,7 +5,7 @@
     - restart i3
 
 - name: write status config
-  template: src=templates/py3status.j2 dest=~/.i3/status/{{ item.stat_conf }}
+  template: src=templates/py3status.j2 dest=~/.i3/status/py3status/{{ item.stat_conf }}
   with_items:
     - "{{ bar_outputs }}"
   notify:
