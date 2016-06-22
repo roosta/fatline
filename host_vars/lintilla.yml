@@ -19,8 +19,9 @@ bar_outputs:
       - "keyboard_layout"
       - "path_exists VPN"
       - "net_rate"
-      - "sysdata"
-      # - "nvidia_temp"
+      - "sysdata cpu"
+      - "sysdata mem"
+      - "nvidia_temp"
       - "dropboxd_status"
       - "tztime local"
 

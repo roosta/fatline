@@ -53,8 +53,16 @@ spotify {
   format_stopped = "  Stopped"
 }
 
-sysdata {
-  format = "CPU: {cpu_usage}%, TEMP: {cpu_temp} | MEM: {mem_used}/{mem_total} GB"
+sysdata cpu {
+  format = "cpu: {cpu_usage}%, temp: {cpu_temp}"
+  med_threshold = 25
+  on_click 1 = "exec i3-sensible-terminal -e htop"
+  on_click 3 = "exec killall htop"
+}
+
+
+sysdata mem {
+  format = "mem: {mem_used}/{mem_total} gb"
   med_threshold = 25
   on_click 1 = "exec i3-sensible-terminal -e htop"
   on_click 3 = "exec killall htop"

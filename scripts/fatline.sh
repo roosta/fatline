@@ -19,6 +19,12 @@ run () {
           "palette")
             $EDITOR ~/.fatline/vars/palette.yml
             ;;
+          "i3")
+            $EDITOR ~/.fatline/roles/i3/templates/config.j2
+            ;;
+          "status")
+            $EDITOR ~/.fatline/roles/i3/templates/py3status.j2
+            ;;
           *)
             useage
             ;;
