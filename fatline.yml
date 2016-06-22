@@ -15,7 +15,7 @@
   vars_files:
     - host_vars/{{ ansible_hostname }}.yml
     - vars/dotfiles.yml
-    - vars/srcery_palette.yml
+    - vars/palette.yml
     - vars/zsh_plugin_list.yml
 
   roles:

@@ -15,3 +15,8 @@ bright_blue:    "#6D9CBE"
 bright_magenta: "#E35682"
 bright_cyan:    "#34BEDA"
 gray:           "#918175"
+
+orange:         "#D75F00"
+bright_orange:  "#FF8700"
+hard_black:     "#080808"
+alt_gray:       "#4E4E4E"
