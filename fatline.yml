@@ -17,6 +17,7 @@
     - vars/dotfiles.yml
     - vars/palette.yml
     - vars/zsh_plugin_list.yml
+    - private/mailbox.yml
 
   roles:
     - { role: symlink, tags: [symlink] }

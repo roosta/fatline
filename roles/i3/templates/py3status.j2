@@ -63,7 +63,7 @@ sysdata cpu {
 
 sysdata mem {
   format = "MEM: {mem_used}/{mem_total}"
-  med_threshold = 50
+  med_threshold = 60
   on_click 1 = "exec i3-sensible-terminal -e htop"
   on_click 3 = "exec killall htop"
 }

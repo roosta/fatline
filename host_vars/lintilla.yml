@@ -13,7 +13,7 @@ bar_outputs:
     tray_out: "primary"
     modules:
       # - "mpd_status"
-      - "spotify"
+      - "imap"
       - "volume_status"
       - "arch_updates"
       - "keyboard_layout"
@@ -23,7 +23,8 @@ bar_outputs:
       - "sysdata mem"
       - "nvidia_temp"
       - "dropboxd_status"
-      - "tztime local"
+      - "tztime date"
+      - "tztime time"
 
   - display: ["DVI-I-3"]
     bar_id: "bar-secondary"
@@ -31,6 +32,7 @@ bar_outputs:
     bar_pos: "top"
     tray_out: "primary"
     modules:
+      - "spotify"
       - "whatismyip"
       - "ethernet bridge0"
       - "disk /"
@@ -40,12 +42,13 @@ bar_outputs:
       - "disk /mnt/archive"
       - "disk /mnt/netmedia"
       - "disk /mnt/netbackup"
-      - "tztime local"
+      - "tztime date"
+      - "tztime time"
 
 i3_font: "pango:Essential PragmataPro 9"
 i3_status_font: "pango:Essential PragmataPro, FontAwesome 9"
 
-i3_status_command: "py3status -c ~/.i3/status"
+i3_status_command: "py3status -c ~/.i3/status/py3status"
 
 # vim:ft=yaml:ts=2:sw=2
 
