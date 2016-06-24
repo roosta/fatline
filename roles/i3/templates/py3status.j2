@@ -55,7 +55,7 @@ spotify {
 
 sysdata cpu {
   format = "CPU: {cpu_usage}%, temp: {cpu_temp}"
-  med_threshold = 50
+  med_threshold = 30
   on_click 1 = "exec i3-sensible-terminal -e htop"
   on_click 3 = "exec killall htop"
 }
