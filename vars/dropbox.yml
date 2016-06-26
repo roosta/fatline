@@ -1,0 +1,5 @@
+dropbox_paths:
+  - {src: "~/Dropbox/Orgzly",           dest: "~/org"}
+  - {src: "~/Dropbox/fonts/restricted", dest: "~/.fonts/restricted"}
+  - {src: "~/Dropbox/Encrypted",        dest: "~/Private"}
+  - {src: "~/Dropbox/Documents",        dest: "~/Documents"}

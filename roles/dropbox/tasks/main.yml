@@ -1,0 +1,26 @@
+---
+- name: check dropbox status
+  shell: dropbox-cli status
+  register: dropbox_status
+
+- name: Stat destination paths.
+  stat: path="{{ item.dest }}"
+  register: dropbox_dest_info
+  when: dropbox_status == "Up to date"
+  with_items: "{{ dropbox_dest_paths }}" 
+
+- name: Copy existing files that are not links 
+  copy: 
+    src: "{{ item.item.dest }}" 
+    dest: "{{ ansible_backup_dir }}/{{ item.item.dest }}@{{ ansible_date_time.iso8601 }}"
+  when: item.stat.exists == true and item.stat.islnk == false
+  with_items: "{{ dropbox_dest_info.results }}"
+
+- name: Remove existing file if a replacement is being linked.
+  file: path="{{ item.item.dest }}" state=absent mode=644
+  when: item.stat.exists == true and item.stat.islnk == false
+  with_items: "{{ dropbox_dest_info.results }}"
+  
+- name: Link dropbox items to destination.
+  file: src="{{ dropbox_dest_paths }}" dest="{{ item.dest }}" state=link
+  with_items: "{{ dropbox_dest_paths }}"
