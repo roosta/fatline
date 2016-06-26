@@ -7,7 +7,7 @@
     lib_dir:             "~/lib"
     font_dir:            "~/.fonts"
     font_dir_misc:       "~/.fonts/misc"
-    font_dir_restricted: "~/.fonts/misc"
+    font_dir_restricted: "~/.fonts/restricted"
     dev_dir:             "~/dev"
     var_dir:             "~/var"
     backup_dir:          "~/.backup"
@@ -20,7 +20,7 @@
   vars_files:
     - host_vars/{{ ansible_hostname }}.yml
     - vars/dotfiles.yml
-    - vars/gruvbox_palette.yml
+    - vars/palette.yml
     - vars/zsh_plugin_list.yml
     - private/mailbox.yml
     - vars/dropbox.yml
@@ -36,4 +36,3 @@
     - { role: dev,     tags: [dev, projects] }
     - { role: xorg,    tags: [xorg, x] }
     - { role: dropbox, tags: [dropbox] }
-

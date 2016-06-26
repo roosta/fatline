@@ -4,28 +4,20 @@
 # │▀▀▀▀▀▀▀░░░▀▀▀░▀▀░░▀░▀░▀░▀░░░▀▀▀▀▀▀▀│
 # │▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀│
 # │ Author: Roosta <mail@roosta.sh>   │
-# │ Site  : http://dotfiles.roosta.sh │
+# │ Site  : https://roosta.sh         │
 # │ Github: https://github.com/roosta │
-# └────────┬──────────────────────────┘
-# Sources: │
-# ┌────────┘
-# │ http://i3wm.org/docs/user-contributed/lzap-config.html
-# │ http://dotshare.it (picked from various i3 confs, color schemes..etc)
-# ┆
-#
+# └───────────────────────────────────┘
 
-## VARIABLES
-# -------------------------
+# ------------------- 
+# VARIABLES
+# -------------------
 # fast way to reach power settings for system. Requires polkit.
 set $locker xscreensaver-command --lock
 #set $locker i3lock --image=$HOME/.background/pattern-01.png -t && sleep 1
 
 # tmux session management
-#set $term urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec mux dev"
 set $term urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s main"
-
-# set terminal command.
-#set $term urxvtc
+#set $term termite -e "bash -c 'tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s main'"
 
 # set scrot/screenshot file arguments
 set $screenshot "$HOME/Pictures/screenshots/screenshot_$(date +%Y-%m-%d@%H-%M-%S).png"
@@ -34,13 +26,10 @@ set $screenshot "$HOME/Pictures/screenshots/screenshot_$(date +%Y-%m-%d@%H-%M-%S
 set $fullrestart "ansible-playbook $HOME/.dotfiles/dotfiles.yml -t i3"
 #set $fullreload "ansible-playbook $HOME/.dotfiles/dotfiles.yml -t i3 && i3-msg reload"
 
-## OPTIONS
-# --------
-# jump to previous workspace by hitting first ws button again
-#workspace_auto_back_and_forth yes
+# --------------------
+# WORKSPACES
+# -------------------- 
 
-## WORKSPACES
-# ------------------------------
 # Numbers in front is for sorting order on i3bar.
 # In each bar numbers are stripped. See bar config below.
 
@@ -113,17 +102,17 @@ bindsym $mod+Shift+F8 move workspace $FWS8
 
 ## assign workspaces to outputs
 # primary
-workspace $PWS1_TRM output {{ outputs[0].display }}
-workspace $PWS3_WWW output {{ outputs[0].display }}
-workspace $PWS2_DEV output {{ outputs[0].display }}
+workspace $PWS1_TRM output {{ primary_display }}
+workspace $PWS3_WWW output {{ primary_display }}
+workspace $PWS2_DEV output {{ primary_display }}
 
-workspace $TWS1_MED output {{ outputs[0].display }}
-workspace $TWS3_GAM output {{ outputs[0].display }}
-workspace $TWS2_ART output {{ outputs[0].display }}
+workspace $TWS1_MED output {{ primary_display }}
+workspace $TWS3_GAM output {{ primary_display }}
+workspace $TWS2_ART output {{ primary_display }}
 # secondary
-workspace $SWS1_AUX output {{ outputs[1].display }}
-workspace $SWS3_DBG output {{ outputs[1].display }}
-workspace $SWS2_COM output {{ outputs[1].display }}
+workspace $SWS1_AUX output {{ secondary_display }}
+workspace $SWS3_DBG output {{ secondary_display }}
+workspace $SWS2_COM output {{ secondary_display }}
 
 # Options
 focus_follows_mouse no
@@ -171,6 +160,8 @@ assign [class="(?i)skype"] $SWS2_COM
 assign [class="(?i)slack"] $SWS2_COM
 assign [class="(?i)thunderbird"] $SWS2_COM
 
+assign [class="(?i)transmission-gtk"] $FWS1
+
 # WINDOW BEHAVIOUR
 # ----------------
 # create some rules to force floating on certain roles/classes
@@ -193,7 +184,8 @@ for_window [class="(?i)yad"] floating enable
 
 ## WINDOW SIZE
 ## -----------
-for_window [class="(?i)Pidgin"]                  floating_maximum_size 50 x 75
+for_window [class="(?i)Pidgin"]   floating_maximum_size 50 x 75
+for_window [class="(?i)nitrogen"] floating_maximum_size 520 x 120
 
 # BORDER
 # ------
@@ -210,6 +202,8 @@ set $mod Mod4
 floating_modifier $mod
 
 bindsym $mod+Return exec $term
+
+bindsym $mod+Shift+Return exec firefox
 #bindsym $mod+Shift+Return exec $tmux_new
 
 # kill focused window
@@ -264,7 +258,7 @@ bindsym $mod+Control+Shift+r exec --no-startup-id $fullrestart
 bindsym $mod+Shift+c reload
 
 # regenerate i3 config and reload
-#bindsym $mod+Control+Shift+c exec --no-startup-id $fullreload
+bindsym $mod+Control+Shift+c exec --no-startup-id $fullreload
 
 # border changing
 bindsym $mod+b border toggle
@@ -274,7 +268,7 @@ bindsym $mod+m move scratchpad
 bindsym $mod+o scratchpad show
 
 # toggle touchpad
-bindsym XF86TouchpadToggle exec --no-startup-id ~/bin/touchpad-toggle
+bindsym XF86TouchpadToggle exec --no-startup-id ~/bin/touchpad_toggle
 
 # move to last workspace
 bindsym $mod+z workspace back_and_forth
@@ -340,8 +334,8 @@ mode "$mode_system" {
   bindsym l       exec --no-startup-id $locker, mode "default"
   bindsym e       exec --no-startup-id i3-msg exit, mode "default"
   bindsym s       exec --no-startup-id $locker && systemctl suspend, mode "default"
-  bindsym r       exec --no-startup-id wmctrl -c firefox && systemctl reboot, mode "default"
-  bindsym Shift+s exec --no-startup-id wmctrl -c firefox && systemctl poweroff -i, mode "default"
+  bindsym r       exec --no-startup-id systemctl reboot, mode "default"
+  bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -376,39 +370,42 @@ bindsym $mod+Home mode "$mode_chdisp"
 font {{ i3_font }}
 
 # <class>               <border> <background> <foreground> <indicator>
-client.focused          {{ neutral_blue }} {{ neutral_blue }} {{ light1 }} {{ neutral_magenta }}
-client.focused_inactive {{ dark2 }} {{ light4 }} {{ dark0 }} {{ neutral_magenta }}
-client.unfocused        {{ dark2 }} {{ dark2 }} {{ gray_245 }} {{ neutral_magenta }}
-client.urgent           {{ neutral_orange }} {{ neutral_orange }} {{ dark0 }} {{ neutral_magenta }}
-client.placeholder      {{ neutral_magenta }} {{ neutral_cyan }} {{ dark0 }} {{ neutral_magenta }}
+client.focused          {{ blue }} {{ blue }} {{ white }} {{ magenta }}
+client.focused_inactive {{ bright_black }} {{ white }} {{ black }} {{ magenta }}
+client.unfocused        {{ black }} {{ black }} {{ gray }} {{ magenta }}
+client.urgent           {{ orange }} {{ orange }} {{ black }} {{ magenta }}
+client.placeholder      {{ magenta }} {{ cyan }} {{ black }} {{ magenta }}
 
 {# macro that renders status bars based on host spesific variables as args #}
 {% macro render_bar(display, bar_id, stat_conf, bar_pos, tray_out) %}
 bar {
   id {{ bar_id }}
-  output {{ display }}
-  status_command {{ i3_status_command }} {{ stat_conf }}
+{% for disp in display %}
+  output {{ disp }}
+{% endfor %}
+  status_command {{ i3_status_command }}/{{ stat_conf }}
   font {{ i3_status_font }}
   position {{ bar_pos }}
   tray_output {{ tray_out }}
   strip_workspace_numbers yes
-  separator_symbol "▋"
+  separator_symbol "|"
+  # sep_block_width 0
   colors {
-    background {{ dark0 }}
-    separator  {{ dark3 }}
-    statusline {{ light1 }}
+    background {{ black }}
+    separator  {{ cyan }}
+    statusline {{ white }}
 
     # <workclass>      <border> <background> <foreground>
-    focused_workspace  {{ faded_blue }} {{ faded_blue }} {{ light1 }}
-    active_workspace   {{ dark0 }} {{ dark0 }} {{ light1 }}
-    inactive_workspace {{ dark0 }} {{ dark0 }} {{ gray_245 }}
-    urgent_workspace   {{ neutral_orange }} {{ neutral_orange }} {{ dark0 }}
+    focused_workspace  {{ blue }} {{ blue }} {{ white }}
+    active_workspace   {{ black }} {{ black }} {{ white }}
+    inactive_workspace {{ black }} {{ black }} {{ white }}
+    urgent_workspace   {{ orange }} {{ orange }} {{ black }}
   }
 }
 {% endmacro %}
 
 {# loop through each output and generate a bar config #}
-{% for output in outputs if output.display %}
+{% for output in bar_outputs if output.display %}
   {{ render_bar(output.display, output.bar_id, output.stat_conf, output.bar_pos, output.tray_out) }}
 {% endfor %}
 

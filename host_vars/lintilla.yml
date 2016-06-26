@@ -1,23 +1,53 @@
 ---
-# define host outputs and various associated vars
-outputs:
-  - display: "DVI-I-2"
+# define monitors and their priority
+primary_display: "DVI-I-2"
+secondary_display: "DVI-I-3"
+tertiary_display: "HDMI-0"
+
+# i3bar output variables
+bar_outputs:
+  - display: ["DVI-I-2", "HDMI-0"]
     bar_id: "bar-primary"
-    stat_conf: "~/.i3/status/lintilla_0.i3status"
+    stat_conf: "lintilla_0.py3status"
     bar_pos: "top"
     tray_out: "primary"
+    modules:
+      # - "mpd_status"
+      - "imap"
+      - "volume_status"
+      - "arch_updates"
+      - "keyboard_layout"
+      - "path_exists VPN"
+      - "net_rate"
+      - "sysdata cpu"
+      - "sysdata mem"
+      - "nvidia_temp"
+      - "dropboxd_status"
+      - "tztime date"
+      - "tztime time"
 
-  - display: "DVI-I-3"
+  - display: ["DVI-I-3"]
     bar_id: "bar-secondary"
-    stat_conf: "~/.i3/status/lintilla_1.i3status"
+    stat_conf: "lintilla_1.py3status"
     bar_pos: "top"
     tray_out: "primary"
+    modules:
+      - "spotify"
+      - "whatismyip"
+      - "ethernet bridge0"
+      - "disk /"
+      - "disk /home"
+      - "disk /mnt/data"
+      - "disk /mnt/games"
+      - "disk /mnt/archive"
+      - "disk /mnt/netmedia"
+      - "disk /mnt/netbackup"
+      - "tztime date"
+      - "tztime time"
 
-# i3 variables.
 i3_font: "pango:Essential PragmataPro 9"
 i3_status_font: "pango:Essential PragmataPro, FontAwesome 9"
-
-i3_status_command: "py3status -c "
+i3_status_command: "py3status -c ~/.i3/status/py3status"
 
 # vim:ft=yaml:ts=2:sw=2
 

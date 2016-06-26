@@ -5,20 +5,36 @@
 # do the handling this way for now
 
 # define playbook
-playbook=$HOME/.dotfiles/dotfiles.yml
+playbook=$HOME/.fatline/fatline.yml
 
 run () {
   (( $# >= 1 )) || usage
   case "$1" in
     "edit")
       if [[ -n "$2" ]]; then
-        vim ~/.dotfiles/tasks/${2}.yml
+        case "$2" in
+          "host_vars")
+            $EDITOR ~/.fatline/host_vars/$(hostname).yml
+            ;;
+          "palette")
+            $EDITOR ~/.fatline/vars/palette.yml
+            ;;
+          "i3")
+            $EDITOR ~/.fatline/roles/i3/templates/config.j2
+            ;;
+          "status")
+            $EDITOR ~/.fatline/roles/i3/templates/py3status.j2
+            ;;
+          *)
+            useage
+            ;;
+        esac
       else
         usage
       fi
       ;;
-    "vars")
-      vim ~/.dotfiles/vars/$(hostname).yml
+    "host_vars")
+      vim ~/.fatline/host_vars/$(hostname).yml
       ;;
     "help")
       usage

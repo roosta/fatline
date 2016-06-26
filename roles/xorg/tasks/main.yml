@@ -1,0 +1,10 @@
+---
+- name: write colorscheme xresource file
+  template: src=templates/colors.j2 dest=~/.Xresources.d/colors.xresources backup=no
+  notify:
+    - xrdb merge
+
+# - name: write urxvt-256-colors xresource file
+#   template: src=templates/urxvt-256-colors.j2 dest=~/.Xresources.d/urxvt-256-colors backup=no
+#   notify:
+#     - xrdb merge
