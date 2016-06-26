@@ -1,10 +1,22 @@
 ---
-- name: Check for missing parent directory
-  stat: path="{{ item.parent }}"
-  register: dotfiles_parent_info
-  with_items: "{{ dotfiles_files }}"
+- name: Stat various user paths.
+  stat: path="{{ item }}"
+  register: paths_info
+  with_items: 
+    - "{{ sbin_dir }}"
+    - "{{ bin_dir }}"
+    - "{{ bin_dir }}"
+    - "{{ lib_dir }}"
+    - "{{ font_dir }}"
+    - "{{ dev_dir }}"
+    - "{{ var_dir }}"
+    - "{{ var_dir }}/undo"
 
-- name: create missing parent directory
-  file: path="{{ item.item.parent }}" state=directory mode=0755 recurse=yes
+- name: create missing paths
+  file: path="{{ item.item }}" state=directory mode=0755 recurse=yes
   when: item.stat.exists == false
-  with_items: "{{ dotfiles_parent_info.results }}"
+  with_items: "{{ paths_info.results }}"
+
+# - name: debug paths
+#   debug: msg="{{ item.item }}"
+#   with_items: "{{ paths_info.results }}"

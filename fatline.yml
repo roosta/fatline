@@ -2,11 +2,12 @@
 - hosts: all
   vars:
     fatline_local_path: "~/.fatline"
-    sbin_dir: "~/lib"
-    bin_dir : "~/bin"
-    lib_dir : "~/lib"
+    sbin_dir: "~/sbin"
+    bin_dir:  "~/bin"
+    lib_dir:  "~/lib"
     font_dir: "~/.fonts/misc"
-    dev_dir: "~/dev"
+    dev_dir:  "~/dev"
+    var_dir:  "~/var"
 
   #pre_tasks:
     #- name: clear out any dangling symlinks
@@ -20,6 +21,7 @@
     - private/mailbox.yml
 
   roles:
+    - { role: init,    tags: [init] }
     - { role: symlink, tags: [symlink] }
     - { role: fonts,   tags: [fonts] }
     - { role: xorg,    tags: [xorg] }
