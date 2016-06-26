@@ -1,5 +1,17 @@
 ---
 - hosts: all
+  vars:
+    fatline_local_path:  "~/.fatline"
+    sbin_dir:            "~/sbin"
+    bin_dir:             "~/bin"
+    lib_dir:             "~/lib"
+    font_dir:            "~/.fonts"
+    font_dir_misc:       "~/.fonts/misc"
+    font_dir_restricted: "~/.fonts/misc"
+    dev_dir:             "~/dev"
+    var_dir:             "~/var"
+    backup_dir:          "~/.backup"
+    ansible_backup_dir:  "~/.backup/ansible"
 
   #pre_tasks:
     #- name: clear out any dangling symlinks
@@ -10,10 +22,18 @@
     - vars/dotfiles.yml
     - vars/gruvbox_palette.yml
     - vars/zsh_plugin_list.yml
-    - vars/fatline.yml
+    - private/mailbox.yml
+    - vars/dropbox.yml
+
   roles:
-    - dotfiles
-    - i3wm
-    - zsh
-    - lib
-    - projects
+    - { role: init,    tags: [init] }
+    - { role: symlink, tags: [symlink] }
+    - { role: fonts,   tags: [fonts] }
+    - { role: xorg,    tags: [xorg] }
+    - { role: i3,      tags: [i3, i3wm] }
+    - { role: shell,   tags: [shell] }
+    - { role: lib,     tags: [lib] }
+    - { role: dev,     tags: [dev, projects] }
+    - { role: xorg,    tags: [xorg, x] }
+    - { role: dropbox, tags: [dropbox] }
+

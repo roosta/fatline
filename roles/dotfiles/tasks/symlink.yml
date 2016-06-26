@@ -14,6 +14,13 @@
   when: item.stat.exists == false
   with_items: "{{ dotfiles_parent_info.results }}"
 
+- name: Backup existing files that are not links with appended timestamp 
+  copy: 
+    src: "{{ item.item.parent }}/{{ item.item.dest }}" 
+    dest: "{{ ansible_backup_dir }}/{{ item.item.parent }}/{{ item.item.dest }}@{{ ansible_date_time.iso8601 }}"
+  when: item.stat.exists == true and item.stat.islnk == false
+  with_items: "{{ existing_dotfile_info.results }}"
+
 - name: Remove existing dotfiles file if a replacement is being linked.
   file: path="{{ item.item.parent }}/{{ item.item.dest }}" state=absent mode=644
   when: item.stat.exists == true and item.stat.islnk == false

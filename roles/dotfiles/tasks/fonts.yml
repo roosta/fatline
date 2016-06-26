@@ -1,5 +1,8 @@
 - name: Set X font
-  shell: xset +fp {{ font_dir }}
+  shell: xset +fp {{ font_dir_misc }}
+
+- name: Set X font
+  shell: xset +fp {{ font_dir_restricted }}
 
 - name: Rehash X fonts
   shell: xset fp rehash
