@@ -2,6 +2,10 @@ Fatline; Config manager using ansible
 ===
 A collection of roles to manage configuration on multiple hosts.
 
+**Disclaimer:**
+
+This project is not built with modular config in mind. It's tailor made to quickly scaffold an Arch Linux install with my personal [dotfiles](https://github.com/roosta/dotfiles) and various libs and projects. I hope this will be useful to someone else but it needs a few tweaks to fit other setups.
+
 **Under constant development so things may break**
 
 Installation:
