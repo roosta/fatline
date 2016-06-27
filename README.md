@@ -19,7 +19,7 @@ fatline gets linked to ```~/bin``` Add this path to your or change the the link 
 A wrapper script for 'ansible-playbook' with simplified syntax.
 Fatline takes an argument in the form of a tag defined in fatline.yml. So for example if I want to run only symlink I would call.
 ```shell
-$ ./scripts.fatline.sh symlink
+$ ./scripts/fatline.sh symlink
 ```
 It can also be used to edit various confs/vars with $EDITOR by calling
 ```shell
