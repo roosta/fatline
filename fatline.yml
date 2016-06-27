@@ -11,6 +11,7 @@
     dev_dir:             "~/dev"
     var_dir:             "~/var"
     backup_dir:          "~/.backup"
+    cache_dir:           "~/.cache"
     ansible_backup_dir:  "~/.backup/ansible"
 
   #pre_tasks:

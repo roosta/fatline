@@ -9,6 +9,8 @@
     - "{{ lib_dir }}"
     - "{{ font_dir }}"
     - "{{ dev_dir }}"
+    - "{{ cache_dir }}"
+    - "{{ cache_dir }}/zsh"
     - "{{ var_dir }}"
     - "{{ var_dir }}/undo"
 
@@ -17,6 +19,3 @@
   when: item.stat.exists == false
   with_items: "{{ paths_info.results }}"
 
-# - name: debug paths
-#   debug: msg="{{ item.item }}"
-#   with_items: "{{ paths_info.results }}"
