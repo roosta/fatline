@@ -17,7 +17,7 @@ Call ./scripts/bootstrap.sh to install ansible and link ansible config to home.
 Currently only supports pacman or apt-get.
 Also links in helper script ```fatline.sh```
 
-fatline gets linked to ```~/bin``` Add this path to your or change the the link location in bootstrap.sh.
+fatline gets linked to ```~/bin``` Add this location to your ```path``` or change the the link location in bootstrap.sh.
 
 ### fatline.sh
 A wrapper script for 'ansible-playbook' with simplified syntax.
