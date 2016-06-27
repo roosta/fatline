@@ -1,5 +1,7 @@
-dropbox_paths:
-  - {src: "~/Dropbox/Orgzly",           dest: "~/org"}
-  - {src: "~/Dropbox/fonts/restricted", dest: "~/.fonts/restricted"}
-  - {src: "~/Dropbox/Encrypted",        dest: "~/Private"}
-  - {src: "~/Dropbox/Documents",        dest: "~/Documents"}
+dropbox_items:
+  - {src: "~/Dropbox/Orgzly",           dest: "org",        parent: "~"}
+  - {src: "~/Dropbox/fonts/restricted", dest: "restricted", parent: "~/.fonts"}
+  - {src: "~/Dropbox/fonts/fancy",      dest: "fancy",      parent: "~/.fonts"}
+  - {src: "~/Dropbox/Documents",        dest: "Documents",  parent: "~"}
+  - {src: "~/Dropbox/Art",              dest: "Art",        parent: "~"}
+  - {src: "~/Dropbox/Soundbank",        dest: "Soundbank",  parent: "~"}
