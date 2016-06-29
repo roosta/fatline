@@ -11,7 +11,7 @@ bar_outputs:
     tray_out: "primary"
     modules:
       - "imap"
-      #- "volume_status"
+      - "volume_status"
       - "arch_updates"
       - "keyboard_layout"
       - "path_exists VPN"
