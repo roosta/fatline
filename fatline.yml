@@ -28,12 +28,11 @@
 
   roles:
     - { role: init,    tags: [init] }
+    - { role: dropbox, tags: [dropbox] }
     - { role: symlink, tags: [symlink] }
     - { role: fonts,   tags: [fonts] }
-    - { role: xorg,    tags: [xorg] }
     - { role: i3,      tags: [i3, i3wm] }
     - { role: shell,   tags: [shell] }
     - { role: lib,     tags: [lib] }
     - { role: dev,     tags: [dev, projects] }
-    - { role: xorg,    tags: [xorg, x] }
-    - { role: dropbox, tags: [dropbox] }
+    - { role: xorg,    tags: [xorg] }
