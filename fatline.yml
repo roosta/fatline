@@ -29,10 +29,10 @@
   roles:
     - { role: init,    tags: [init] }
     - { role: dropbox, tags: [dropbox] }
-    - { role: symlink, tags: [symlink] }
+    - { role: symlink, tags: [symlink, symlinks] }
     - { role: fonts,   tags: [fonts] }
     - { role: i3,      tags: [i3, i3wm] }
-    - { role: shell,   tags: [shell] }
-    - { role: lib,     tags: [lib] }
+    - { role: shell,   tags: [shell, zsh] }
+    - { role: lib,     tags: [lib, libs] }
     - { role: dev,     tags: [dev, projects] }
-    - { role: xorg,    tags: [xorg] }
+    - { role: xorg,    tags: [xorg, x] }
