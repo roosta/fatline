@@ -1,0 +1,33 @@
+---
+- name: check dropbox status
+  shell: dropbox-cli status
+  register: dropbox_status
+
+- name: print status
+  debug: msg="dropbox is up to date, continuing..."
+  when: dropbox_status.stdout == "Up to date"
+
+- name: Stat destination paths.
+  stat: path="{{ item.parent }}/{{ item.dest }}"
+  register: dropbox_dest_info
+  when: dropbox_status.stdout == "Up to date"
+  with_items: "{{ dropbox_items }}" 
+
+- name: Check for missing parent directory
+  stat: path="{{ item.parent }}"
+  register: dropbox_parent_info
+  with_items: "{{ dropbox_items }}"
+
+- name: create missing parent directory
+  file: path="{{ item.item.parent }}" state=directory mode=0755 recurse=yes
+  when: item.stat.exists == false
+  with_items: "{{ dropbox_parent_info.results }}"
+
+- name: Move existing files
+  command: "mv {{ item.item.parent }}/{{ item.item.dest }} {{ ansible_backup_dir }}/{{ item.item.dest }}@{{ ansible_date_time.iso8601 }}"
+  when: item.stat.exists == true and item.stat.islnk == false
+  with_items: "{{ dropbox_dest_info.results }}"
+  
+- name: Link dropbox items to destination.
+  file: src="{{ item.src }}" dest="{{ item.parent}}/{{ item.dest }}" state=link
+  with_items: "{{ dropbox_items }}"

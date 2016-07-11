@@ -28,4 +28,11 @@
     - { src: "pure.zsh", dest: "prompt_pure_setup" }
     - { src: "async.zsh", dest: "async" }
 
+- name: check for zsh dirs cache file
+  stat: path="{{ cache_dir }}/zsh/dirs"
+  register: existing_zsh_cache_info
+
+- name: create zsh dirs cache file
+  file: path="~/.cache/zsh/dirs" state=touch mode=0644
+  when: existing_zsh_cache_info.stat.exists == false
 

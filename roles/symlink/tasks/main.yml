@@ -4,6 +4,11 @@
   register: existing_dotfile_info
   with_items: "{{ dotfiles_files }}"
 
+- name: Move existing files that are not links to backup folder.
+  command: "mv {{ item.item.parent }}/{{ item.item.dest }} {{ ansible_backup_dir }}/{{ item.item.dest }}@{{ ansible_date_time.iso8601 }}"
+  when: item.stat.exists == true and item.stat.islnk == false
+  with_items: "{{ existing_dotfile_info.results }}"
+
 - name: Check for missing parent directory
   stat: path="{{ item.parent }}"
   register: dotfiles_parent_info
@@ -14,10 +19,10 @@
   when: item.stat.exists == false
   with_items: "{{ dotfiles_parent_info.results }}"
 
-- name: Remove existing dotfiles file if a replacement is being linked.
-  file: path="{{ item.item.parent }}/{{ item.item.dest }}" state=absent mode=644
-  when: item.stat.exists == true and item.stat.islnk == false
-  with_items: "{{ existing_dotfile_info.results }}"
+# - name: Remove existing dotfiles file if a replacement is being linked.
+#   file: path="{{ item.item.parent }}/{{ item.item.dest }}" state=absent mode=644
+#   when: item.stat.exists == true and item.stat.islnk == false
+#   with_items: "{{ existing_dotfile_info.results }}"
 
 - name: Link dotfiles into home folder.
   file: src="{{ dotfiles_repo_local_dest }}/{{ item.src }}" dest="{{ item.parent }}/{{ item.dest }}" state=link

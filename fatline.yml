@@ -1,12 +1,18 @@
 ---
 - hosts: all
   vars:
-    fatline_local_path: "~/.fatline"
-    sbin_dir: "~/lib"
-    bin_dir : "~/bin"
-    lib_dir : "~/lib"
-    font_dir: "~/.fonts/misc"
-    dev_dir: "~/dev"
+    fatline_local_path:  "~/.fatline"
+    sbin_dir:            "~/sbin"
+    bin_dir:             "~/bin"
+    lib_dir:             "~/lib"
+    font_dir:            "~/.fonts"
+    font_dir_misc:       "~/.fonts/misc"
+    font_dir_restricted: "~/.fonts/restricted"
+    dev_dir:             "~/dev"
+    var_dir:             "~/var"
+    backup_dir:          "~/.backup"
+    cache_dir:           "~/.cache"
+    ansible_backup_dir:  "~/.backup/ansible"
 
   #pre_tasks:
     #- name: clear out any dangling symlinks
@@ -17,14 +23,16 @@
     - vars/dotfiles.yml
     - vars/palette.yml
     - vars/zsh_plugin_list.yml
-    # - private/mailbox.yml
+    - private/mailbox.yml
+    - vars/dropbox.yml
 
   roles:
-    - { role: symlink, tags: [symlink] }
+    - { role: init,    tags: [init] }
+    - { role: dropbox, tags: [dropbox] }
+    - { role: symlink, tags: [symlink, symlinks, dotfiles] }
     - { role: fonts,   tags: [fonts] }
-    - { role: xorg,    tags: [xorg] }
     - { role: i3,      tags: [i3, i3wm] }
-    - { role: shell,   tags: [shell] }
-    - { role: lib,     tags: [lib] }
+    - { role: shell,   tags: [shell, zsh] }
+    - { role: lib,     tags: [lib, libs] }
     - { role: dev,     tags: [dev, projects] }
     - { role: xorg,    tags: [xorg, x] }

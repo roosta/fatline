@@ -1,0 +1,7 @@
+dropbox_items:
+  - {src: "~/Dropbox/Orgzly",           dest: "org",        parent: "~"}
+  - {src: "~/Dropbox/fonts/restricted", dest: "restricted", parent: "~/.fonts"}
+  - {src: "~/Dropbox/fonts/fancy",      dest: "fancy",      parent: "~/.fonts"}
+  - {src: "~/Dropbox/Documents",        dest: "Documents",  parent: "~"}
+  - {src: "~/Dropbox/Art",              dest: "Art",        parent: "~"}
+  - {src: "~/Dropbox/Soundbank",        dest: "Soundbank",  parent: "~"}

@@ -370,11 +370,11 @@ bindsym $mod+Home mode "$mode_chdisp"
 font {{ i3_font }}
 
 # <class>               <border> <background> <foreground> <indicator>
-client.focused          {{ blue }} {{ blue }} {{ white }} {{ magenta }}
-client.focused_inactive {{ bright_black }} {{ white }} {{ black }} {{ magenta }}
-client.unfocused        {{ black }} {{ black }} {{ gray }} {{ magenta }}
-client.urgent           {{ orange }} {{ orange }} {{ black }} {{ magenta }}
-client.placeholder      {{ magenta }} {{ cyan }} {{ black }} {{ magenta }}
+client.focused          {{ blue         }} {{ blue         }} {{ white }} {{ magenta }}
+client.focused_inactive {{ bright_black }} {{ white        }} {{ black }} {{ magenta }}
+client.unfocused        {{ bright_black }} {{ bright_black }} {{ gray  }} {{ magenta }}
+client.urgent           {{ orange       }} {{ orange       }} {{ black }} {{ magenta }}
+client.placeholder      {{ magenta      }} {{ cyan         }} {{ black }} {{ magenta }}
 
 {# macro that renders status bars based on host spesific variables as args #}
 {% macro render_bar(display, bar_id, stat_conf, bar_pos, tray_out) %}
@@ -392,13 +392,13 @@ bar {
   # sep_block_width 0
   colors {
     background {{ black }}
-    separator  {{ cyan }}
+    separator  {{ cyan  }}
     statusline {{ white }}
 
     # <workclass>      <border> <background> <foreground>
-    focused_workspace  {{ blue }} {{ blue }} {{ white }}
-    active_workspace   {{ black }} {{ black }} {{ white }}
-    inactive_workspace {{ black }} {{ black }} {{ white }}
+    focused_workspace  {{ blue   }} {{ blue   }} {{ white }}
+    active_workspace   {{ black  }} {{ black  }} {{ white }}
+    inactive_workspace {{ black  }} {{ black  }} {{ white }}
     urgent_workspace   {{ orange }} {{ orange }} {{ black }}
   }
 }

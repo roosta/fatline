@@ -74,6 +74,13 @@ keyboard_layout {
   colors = "us={{ bright_green }}, no={{ bright_orange }}"
 }
 
+imap {
+  user = "{{ mailboxUser }}"
+  password = "{{ mailboxPass }}"
+  new_mail_color = "{{ bright_orange }}"
+  imap_server = "{{ mailboxServer }}"
+  on_click 1 = "exec thunderbird -mail"
+}
 # control the volume with your mouse (need >i3-4.8)
 # launch alsamixer when I left click
 # kill it when I right click
@@ -97,6 +104,12 @@ wireless wlp2s0 {
 }
 
 ethernet bridge0 {
+  # if you use %speed, i3status requires the cap_net_admin capability
+  format_up = "E: %ip"
+  format_down = "E: down"
+}
+
+ethernet enp2s0 {
   # if you use %speed, i3status requires the cap_net_admin capability
   format_up = "E: %ip"
   format_down = "E: down"

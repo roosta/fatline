@@ -9,7 +9,6 @@ packages() {
   fi
 }
 
-
 packages && \
   mkdir ~/.ansible && \
   mkdir ~/bin && \

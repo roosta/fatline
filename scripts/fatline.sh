@@ -19,6 +19,9 @@ run () {
           "palette")
             $EDITOR ~/.fatline/vars/palette.yml
             ;;
+          "dotfiles")
+            $EDITOR ~/.fatline/vars/dotfiles.yml
+            ;;
           "i3")
             $EDITOR ~/.fatline/roles/i3/templates/config.j2
             ;;

@@ -10,8 +10,8 @@ bar_outputs:
     bar_pos: "top"
     tray_out: "primary"
     modules:
-      - "spotify"
-      #- "volume_status"
+      - "imap"
+      - "volume_status"
       - "arch_updates"
       - "keyboard_layout"
       - "path_exists VPN"
@@ -26,8 +26,9 @@ bar_outputs:
     bar_pos: "top"
     tray_out: "primary"
     modules:
+      - "spotify"
       - "whatismyip"
-      - "ethernet enp0s0"
+      - "ethernet enp2s0"
       - "tztime local"
 
 
