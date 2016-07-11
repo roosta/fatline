@@ -23,7 +23,6 @@
     - vars/dotfiles.yml
     - vars/palette.yml
     - vars/zsh_plugin_list.yml
-    - private/mailbox.yml
     - vars/dropbox.yml
 
   roles:
