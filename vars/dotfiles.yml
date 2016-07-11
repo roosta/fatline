@@ -58,4 +58,5 @@ dotfiles_files:
   - {src: ".yabar.conf",        parent: "~",                                 dest: ".yabar.conf"}
   - {src: ".ptpython",          parent: "~",                                 dest: ".ptpython"}
   - {src: ".ipython",           parent: "~",                                 dest: ".ipython"}
+  - {src: "conky",              parent: "~/.config",                         dest: "conky"}
 

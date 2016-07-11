@@ -29,7 +29,7 @@
   roles:
     - { role: init,    tags: [init] }
     - { role: dropbox, tags: [dropbox] }
-    - { role: symlink, tags: [symlink, symlinks] }
+    - { role: symlink, tags: [symlink, symlinks, dotfiles] }
     - { role: fonts,   tags: [fonts] }
     - { role: i3,      tags: [i3, i3wm] }
     - { role: shell,   tags: [shell, zsh] }
