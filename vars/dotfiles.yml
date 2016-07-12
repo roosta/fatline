@@ -59,4 +59,5 @@ dotfiles_files:
   - {src: ".ptpython",          parent: "~",                                 dest: ".ptpython"}
   - {src: ".ipython",           parent: "~",                                 dest: ".ipython"}
   - {src: "conky",              parent: "~/.config",                         dest: "conky"}
+  - {src: "pip.conf",           parent: "~/.pip",                            dest: "pip.conf"}
 
